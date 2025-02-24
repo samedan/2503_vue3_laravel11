@@ -21,7 +21,10 @@ Route::get('/', function () {
 });
 
 Route::prefix('auth')->group(function() {
-    Route::post('/login', LoginController::class);
+    // http://127.0.0.1:8000/auth/login
+    Route::post('/login', LoginController::class)->middleware('guest');
+    // http://127.0.0.1:8000/auth/logout
     Route::post('/logout', LogoutController::class);
-    Route::post('/register', RegisterController::class);
+    // http://127.0.0.1:8000/auth/register
+    Route::post('/register', RegisterController::class)->middleware('guest');
 });

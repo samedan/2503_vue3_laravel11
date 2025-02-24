@@ -63,3 +63,7 @@ pm.sendRequest({
 ```
 
 > ![PreRequest script](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/01_printscreen.jpg)
+
+### API Token
+
+> /routes/ web.php & api.php
