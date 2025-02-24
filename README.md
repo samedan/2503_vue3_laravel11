@@ -83,3 +83,7 @@ pm.sendRequest({
 > public function user() return $this->belongsTo(User::class)
 
 > $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+### Policy Auth
+
+> php artisan make:policy TaskPolicy
