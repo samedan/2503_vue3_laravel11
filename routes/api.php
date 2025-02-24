@@ -18,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::middleware('auth:sanctum')->prefix('v1')->group(function() {
-    Route::apiResource('/tasks', TaskController::class);
-    Route::patch('/tasks/{task}/complete', CompleteTaskController::class);
-});
 
+require __DIR__ . '/api/v1.php';
+require __DIR__ . '/api/v2.php';
+
+
+// V1
 Route::prefix('auth')->group(function() {
     // http://127.0.0.1:8000/api/auth/login
     Route::post('/login', LoginController::class);

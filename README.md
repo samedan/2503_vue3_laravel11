@@ -67,3 +67,19 @@ pm.sendRequest({
 ### API Token
 
 > /routes/ web.php & api.php
+
+### Link Users to Tasks
+
+# New Migration for Tasks table
+
+> php artisan make:migration add_user_id_to_tasks
+
+# Model user
+
+> public function tasks() return $this->hasMany(Task::class);
+
+# Model Task
+
+> public function user() return $this->belongsTo(User::class)
+
+> $table->foreignId('user_id')->constrained()->cascadeOnDelete();
