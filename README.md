@@ -42,3 +42,22 @@ public function rules(): array
         ];
     }
 ```
+
+### Auth Sanctum
+
+# Login Route
+
+> http://127.0.0.1:8000/auth/login
+
+# Login route pre-request
+
+```
+pm.sendRequest({
+    url: "http://127.0.0.1:8000/sanctum/csrf-cookie",
+    method: "GET"
+}, function(err, res, {cookies}) {
+    if(!err) {
+        pm.globals.set('csrf-token', cookies.get('XSRF-TOKEN'))
+    }
+})
+```
