@@ -101,3 +101,14 @@ pm.sendRequest({
 # Component registered globally
 
 > tags-input/main.js -> app.component("tags-input", TagsInput);
+
+# v-bind
+
+> <input type="text" v-bind:value="newTag" />
+
+> <div v-for="(tag, index) in tags">
+
+# v-on: = @
+
+> v-on:keydown.enter="tags.push($event.target.value)"
+> @keydown.enter="tags.push($event.target.value)"
