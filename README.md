@@ -87,3 +87,17 @@ pm.sendRequest({
 ### Policy Auth
 
 > php artisan make:policy TaskPolicy
+
+### FRONTEND
+
+### Vue
+
+> npm init vite@latest
+
+# Online terminal
+
+> vite.new/vue
+
+# Component registered globally
+
+> tags-input/main.js -> app.component("tags-input", TagsInput);
