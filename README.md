@@ -177,3 +177,15 @@ export default {
 ### FRONTEND Vue
 
 > https://www.udemy.com/course/laravel-vuejs-fullstack-web-development/learn/lecture/42788496#overview
+
+### Base URL
+
+> /http/api.js
+
+# API functions
+
+> /http/task-api.js
+
+### API working with the Vue Frontend
+
+> ![vue](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/02_printscreen.jpg)
