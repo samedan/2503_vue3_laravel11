@@ -173,3 +173,7 @@ export default {
 ```
 
 # ref, reactive, toRef, toRefs
+
+### FRONTEND Vue
+
+> https://www.udemy.com/course/laravel-vuejs-fullstack-web-development/learn/lecture/42788496#overview

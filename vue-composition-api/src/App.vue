@@ -13,14 +13,22 @@ export default {
                 quantity: 1,
             },
         ]);
-        return { items };
+
+        const handleRemove = (data) => items.value.splice(0, 1);
+
+        return { items, handleRemove };
     },
 };
 </script>
 
 <template>
     <div>
-        <CartItem v-for="item in items" :cart-item="item" :key="item.id" />
+        <CartItem
+            v-for="item in items"
+            :cart-item="item"
+            :key="item.id"
+            @remove="handleRemove"
+        />
     </div>
 </template>
 
