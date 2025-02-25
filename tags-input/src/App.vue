@@ -1,15 +1,22 @@
 <script>
-// import TagsInput from "./components/TagsInput.vue";
-
-// import TestComponent from "./components/TestComponent.vue";
+export default {
+    data: () => ({
+        jsFrameworks: ["react.js", "vue.js", "angular"],
+    }),
+    mounted() {
+        setTimeout(() => {
+            this.jsFrameworks.push("svelte.js");
+        }, 3000);
+    },
+};
 </script>
 
 <template>
     <div>
-        <h1>Hello , Vue</h1>
+        <!-- <h1>Hello , Vue</h1> -->
 
-        <tags-input />
-        <test-component />
+        <tags-input :selected-tags="jsFrameworks" />
+        <!-- <test-component /> -->
     </div>
 </template>
 

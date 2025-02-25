@@ -145,3 +145,15 @@ pm.sendRequest({
 > v-bind:style="tags.includes(newTag) ? {} : ''"
 
 > OR :class="tags.includes(newTag) ? 'tag-exists' : ''"
+
+# Computed Properties
+
+```
+computed: {
+        isTagExists() {
+            return this.tags.includes(this.newTag);
+        },
+    },
+```
+
+# Watchers: look for an event
