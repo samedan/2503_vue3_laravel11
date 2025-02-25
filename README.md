@@ -112,3 +112,36 @@ pm.sendRequest({
 
 > v-on:keydown.enter="tags.push($event.target.value)"
 > @keydown.enter="tags.push($event.target.value)"
+
+```
+<input type="text"
+    :value="newTag"
+    @keydown.enter="tags.push($event.target.value)"
+    @keydown.tab.prevent="tags.push($event.target.value)"
+    @input="newTag = $event.target.value"
+/>
+```
+
+# v-model - Data binding
+
+```
+<input type="text"
+  v-model="newTag"
+  @keydown.enter="tags.push($event.target.value)"
+  @keydown.tab.prevent="tags.push($event.target.value)"
+/>
+```
+
+# v-model Modifiers
+
+> https://vuejs.org/guide/essentials/forms.html
+
+# style binding
+
+> v-bind:style="tags.includes(newTag) ? {} : ''"
+
+# class binding
+
+> v-bind:style="tags.includes(newTag) ? {} : ''"
+
+> OR :class="tags.includes(newTag) ? 'tag-exists' : ''"
