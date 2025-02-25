@@ -157,3 +157,5 @@ computed: {
 ```
 
 # Watchers: look for an event
+
+# Events Parent <-> Child Components
