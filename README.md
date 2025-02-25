@@ -159,3 +159,17 @@ computed: {
 # Watchers: look for an event
 
 # Events Parent <-> Child Components
+
+### Vue 3 Composition API
+
+> import { ref } from "vue";
+
+```
+export default {
+    setup() {
+        const message = ref("Hello");
+    }
+    }
+```
+
+# ref, reactive, toRef, toRefs
