@@ -193,3 +193,32 @@ export default {
 ### Task.vue & Completed Tasks
 
 > ![completedtasks](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/03_printscreen.jpg)
+
+### PINIA
+
+> https://pinia.vuejs.org/introduction.html
+
+# main.js
+
+```
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import App from "./App.vue";
+
+const app = createApp(App);
+app.use(createPinia());
+app.mount("#app");
+```
+
+# Store
+
+> /src/stores/task.js -> export const useTaskStore = defineStore("taskStore", {})
+
+# use Store in component
+
+> TasksPage.vue
+
+```
+const store = useTaskStore();
+const {task} = storeToRefs(store)
+```
