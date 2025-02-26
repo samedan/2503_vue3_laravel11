@@ -4,15 +4,10 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <!-- Add new Task -->
-                    <NewTask @added="handleAddedTask" />
+                    <NewTask />
 
                     <!-- List of UNCOMPLETED tasks -->
-                    <Tasks
-                        :tasks="uncompletedTasks"
-                        @updated="handleUpdatedTask"
-                        @completed="handleCompletedTask"
-                        @removed="handleRemovedTask"
-                    />
+                    <Tasks :tasks="uncompletedTasks" />
 
                     <!-- show toggle button -->
                     <div
@@ -34,9 +29,6 @@
                     <Tasks
                         :tasks="completedTasks"
                         :show="completedTaskIsVisible && showCompletedTasks"
-                        @updated="handleUpdatedTask"
-                        @completed="handleCompletedTask"
-                        @removed="handleRemovedTask"
                     />
                 </div>
             </div>
@@ -49,13 +41,7 @@ import { computed, onMounted, ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
 // import api from "../http/api";
-import {
-    allTasks,
-    completeTask,
-    createTask,
-    removeTask,
-    updateTask,
-} from "../http/task-api";
+
 import Tasks from "@/components/tasks/Tasks.vue";
 import NewTask from "@/components/tasks/NewTask.vue";
 
@@ -63,22 +49,11 @@ import NewTask from "@/components/tasks/NewTask.vue";
 const store = useTaskStore();
 // const { task } = storeToRefs(store);
 const { completedTasks, uncompletedTasks } = storeToRefs(store);
-// STATE
-store.$patch({
-    task: {
-        name: "Task edited in $patch",
-        is_completed: true,
-    },
-});
-
-const tasks = ref([]);
+const { fetchAllTasks } = store;
 
 onMounted(async () => {
-    // const { data } = await api.get("/tasks");
-    const { data } = await allTasks();
-    // console.log(data);
-
-    tasks.value = data.data;
+    // await store.fetchAllTasks();
+    await fetchAllTasks();
 });
 
 const showToggleCompletedBtn = computed(
@@ -90,38 +65,4 @@ const completedTaskIsVisible = computed(
 );
 
 const showCompletedTasks = ref(false);
-
-//Submit function Create Task
-const handleAddedTask = async (newTask) => {
-    const { data: createdTask } = await createTask(newTask);
-    tasks.value.unshift(createdTask.data);
-};
-
-const handleUpdatedTask = async (task) => {
-    // Update the DBB
-    const { data: updatedTask } = await updateTask(task.id, {
-        name: task.name,
-    });
-    // Replace current task name
-    const currentTask = tasks.value.find((item) => item.id === task.id);
-    currentTask.name = updatedTask.data.name;
-};
-
-const handleCompletedTask = async (task) => {
-    // Update the DBB
-    const { data: updatedTask } = await completeTask(task.id, {
-        is_completed: task.is_completed,
-    });
-    // Replace current task Complete status
-    const currentTask = tasks.value.find((item) => item.id === task.id);
-    currentTask.is_completed = updatedTask.data.is_completed;
-};
-
-const handleRemovedTask = async (task) => {
-    await removeTask(task.id);
-    console.log("here");
-
-    const index = tasks.value.findIndex((item) => item.id === task.id);
-    tasks.value.splice(index, 1);
-};
 </script>
