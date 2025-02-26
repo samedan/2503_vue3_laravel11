@@ -226,3 +226,7 @@ const {task} = storeToRefs(store)
 # Getters
 
 > task.js -> getters: {}
+
+### Vue Router
+
+> npm i vue-router
