@@ -222,3 +222,7 @@ app.mount("#app");
 const store = useTaskStore();
 const {task} = storeToRefs(store)
 ```
+
+# Getters
+
+> task.js -> getters: {}
