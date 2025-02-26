@@ -189,3 +189,7 @@ export default {
 ### API working with the Vue Frontend
 
 > ![vue](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/02_printscreen.jpg)
+
+### Task.vue & Completed Tasks
+
+> ![completedtasks](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/03_printscreen.jpg)
