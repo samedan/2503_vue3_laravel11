@@ -230,3 +230,19 @@ const {task} = storeToRefs(store)
 ### Vue Router
 
 > npm i vue-router
+
+### Routes
+
+> /src/router/index.js & routes.js
+
+> <router-link :to="{name: 'tasks'}"></router-link>
+
+# Active route
+
+> 1 index.js -> linkActiveClass: "active",
+> 2 <style scoped>
+> .nav-link.router-link-active {}
+
+# Not Found Page
+
+> routes.js -> {path: "/:notFound(.\*)",..}
