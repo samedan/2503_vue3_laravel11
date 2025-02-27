@@ -246,3 +246,29 @@ const {task} = storeToRefs(store)
 # Not Found Page
 
 > routes.js -> {path: "/:notFound(.\*)",..}
+
+# Guard navigation to links: /router/index.js
+
+```
+router.beforeEach((to, from) => {
+    console.log("Global beforeEach", to, from);
+    if (to.path === "/tasks") {
+        return { name: "login" };
+    }
+});
+```
+
+# Guard navigation with Meta fields: /router/index.js
+
+> http://localhost:5173/login?redirect=/summary
+
+```
+if (to.meta.auth) {
+        return {
+            name: "login",
+            query: {
+                redirect: to.fullPath,
+            },
+        };
+    }
+```
