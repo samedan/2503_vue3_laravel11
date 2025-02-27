@@ -272,3 +272,17 @@ if (to.meta.auth) {
         };
     }
 ```
+
+### Transitions
+
+> https://vuejs.org/guide/built-ins/transition.html#transition
+
+> App.vue
+
+```
+<router-view v-slot="{ Component }">
+            <transition name="fade" mode="out-in">
+                <component :is="Component" />
+            </transition>
+        </router-view>
+```

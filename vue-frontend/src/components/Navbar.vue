@@ -1,10 +1,15 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container py-2">
-            <a href="index.html" class="navbar-brand">
+            <router-link :to="{ name: 'home' }" class="navbar-brand">
                 <span>Toedoe</span>
                 <strong>List</strong>
-            </a>
+            </router-link>
+
+            <!-- <a href="index.html" class="navbar-brand">
+                <span>Toedoe</span>
+                <strong>List</strong>
+            </a> -->
             <button
                 class="navbar-toggler"
                 type="button"
