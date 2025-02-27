@@ -286,3 +286,9 @@ if (to.meta.auth) {
             </transition>
         </router-view>
 ```
+
+### AUTH Pinia Store
+
+> /src/stores/auth.js
+
+> routes.js -> meta: { auth: true },
