@@ -6,26 +6,44 @@
                 <strong>List</strong>
             </h1>
             <h2 class="h3 mb-4 fw-normal">Please sign in</h2>
-            <!-- {{ form }} -->
+            <!-- {{ errors }} -->
             <div class="form-floating mb-2">
                 <input
                     type="email"
                     class="form-control"
                     id="email"
                     v-model="form.email"
+                    :class="{
+                        'is-invalid': errors.email && errors.email[0],
+                    }"
                     placeholder="name@example.com"
                 />
                 <label for="email">Email</label>
+                <div
+                    class="invalid-feedback"
+                    v-if="errors.email && errors.email[0]"
+                >
+                    {{ errors.email && errors.email[0] }}
+                </div>
             </div>
             <div class="form-floating mb-3">
                 <input
                     type="password"
                     class="form-control"
+                    :class="{
+                        'is-invalid': errors.password && errors.password[0],
+                    }"
                     id="password"
                     v-model="form.password"
                     placeholder="Password"
                 />
                 <label for="password">Password</label>
+                <div
+                    class="invalid-feedback"
+                    v-if="errors.password && errors.password[0]"
+                >
+                    {{ errors.password && errors.password[0] }}
+                </div>
             </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">
@@ -39,6 +57,7 @@
 import { useRouter } from "vue-router";
 import { reactive } from "vue";
 import { useAuthStore } from "../stores/auth";
+import { storeToRefs } from "pinia";
 
 const form = reactive({
     email: "",
@@ -47,11 +66,15 @@ const form = reactive({
 
 const router = useRouter();
 const store = useAuthStore();
+const { isLoggedIn, errors } = storeToRefs(store);
+const { handleLogin } = store;
 
 const handleSubmit = async () => {
     // router.push("/tasks");
-    await store.handleLogin(form);
-    router.push({ name: "tasks" });
+    await handleLogin(form);
+    if (isLoggedIn.value) {
+        router.push({ name: "tasks" });
+    }
 };
 </script>
 
