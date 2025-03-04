@@ -292,3 +292,13 @@ if (to.meta.auth) {
 > /src/stores/auth.js
 
 > routes.js -> meta: { auth: true },
+
+### Error login in
+
+> /config/sanctum.php -> SANCTUM_STATEFUL_DOMAINS -> .env
+
+### Redirecting if Logged In
+
+> /router/routes.js -> meta: { guest: true, },
+
+> /router/index.js -> else if (to.meta.guest && store.isLoggedIn) {}
