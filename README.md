@@ -324,3 +324,9 @@ if (to.meta.auth) {
 
 > DatabaseSeeder.php -> php artisan migrate:fresh --seed
 > ![summaries](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/04_printscreen.jpg)
+
+# SummaryPage.vue, SummaryFilter.vue
+
+> filterItems, date-fns
+
+> ![date-fns](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/05_printscreen.jpg)
