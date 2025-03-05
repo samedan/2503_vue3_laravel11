@@ -29,11 +29,9 @@ export const useTaskStore = defineStore("taskStore", () => {
     };
 
     const handleUpdatedTask = async (task) => {
-        // Update the DBB
         const { data: updatedTask } = await updateTask(task.id, {
             name: task.name,
         });
-        // Replace current task name
         const currentTask = tasks.value.find((item) => item.id === task.id);
         currentTask.name = updatedTask.data.name;
     };

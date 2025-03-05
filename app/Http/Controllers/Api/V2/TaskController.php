@@ -29,22 +29,25 @@ class TaskController extends Controller
         if(request()->user()->cannot('create', Task::class)) {
             abort(403, "This action is unauthorized");
         }
-        $task = $request->user()->create($request->validated());
+        // $task = $request->user()->create($request->validated());
+        $task = $request->user()->tasks()->create($request->validated());
         return TaskResource::make($task);
     }
 
     public function update(UpdateTaskRequest $request, Task $task) {
-        // if($request->user()->cannot('update', $task)) {
-        //     abort(403, "This action is unauthorized");
-        // }
-        // $task->update($request->validated());
-        // return TaskResource::make($task);
-        Gate::authorize('update', $task);
-
-        $task->is_completed = $request->is_completed;
-        $task->save();
-
+        if($request->user()->cannot('update', $task)) {
+            abort(403, "This action is unauthorized");
+        }
+        $task->update($request->validated());
         return TaskResource::make($task);
+
+        // Gate::authorize('update', $task);
+
+        // $task->is_completed = $request->is_completed;
+
+        // $task->save();
+
+        // return TaskResource::make($task);
     }
 
     public function destroy(Task $task) {

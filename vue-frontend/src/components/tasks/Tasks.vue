@@ -14,8 +14,8 @@
 </template>
 
 <script setup>
-import Task from "./Task.vue";
 import { useTaskStore } from "../../stores/task";
+import Task from "./Task.vue";
 
 const store = useTaskStore();
 const { handleUpdatedTask, handleCompletedTask, handleRemovedTask } = store;

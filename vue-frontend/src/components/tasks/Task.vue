@@ -63,6 +63,8 @@ const vFocus = {
 
 const updateTask = (event) => {
     const updatedTask = { ...props.task, name: event.target.value };
+    console.log(updatedTask);
+
     isEdit.value = false;
     emit("updated", updatedTask);
 };
