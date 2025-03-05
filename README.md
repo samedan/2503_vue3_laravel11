@@ -310,3 +310,17 @@ if (to.meta.auth) {
 > /router/routes.js -> meta: { guest: true, },
 
 > /router/index.js -> else if (to.meta.guest && store.isLoggedIn) {}
+
+### SUMMARIES
+
+# Backend
+
+> TaskSymmaryResource.php
+
+> SummaryController.php
+
+> /routes/api/v2.php -> Route::get('/summaries', SummaryController::class);
+> User Model -> public function tasksSummary($period = null) {}
+
+> DatabaseSeeder.php -> php artisan migrate:fresh --seed
+> ![summaries](https://github.com/samedan/2503_vue3_laravel11/blob/main/_printscreens/04_printscreen.jpg)
